@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Trust Bank - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .balance {
+      text-align: center;
+      font-size: 20px;
+      color: green;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    .withdraw-section {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .withdraw-section input {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 10px;
+    }
+    .withdraw-section button {
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .support-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .support-section button {
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #supportInfo {
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Global Trust Bank
+  </header>
+
+  <div class="container">
+    <h2>Welcome, Mr. Jason Johnson</h2>
+    <p class="balance">Account Balance: $800,000.00</p>
+
+    <h3 style="text-align:center;">Transaction History</h3>
+    <table>
+      <tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th></tr>
+      <tr><td>2018-04-12</td><td>Deposit from Atlas Mining Corp</td><td>Credit</td><td>$300,000.00</td></tr>
+      <tr><td>2018-09-03</td><td>Transfer to Family Trust Fund</td><td>Debit</td><td>-$50,000.00</td></tr>
+      <tr><td>2019-06-22</td><td>Deposit from Silverline Logistics Inc</td><td>Credit</td><td>$200,000.00</td></tr>
+      <tr><td>2019-10-01</td><td>ATM Withdrawal</td><td>Debit</td><td>-$25,000.00</td></tr>
+      <tr><td>2019-11-15</td><td>Deposit from Legacy Oil & Gas Ltd</td><td>Credit</td><td>$375,000.00</td></tr>
+    </table>
+
+    <div class="withdraw-section">
+      <h3>Withdraw Funds</h3>
+      <input type="number" id="withdrawAmount" placeholder="Enter amount" />
+      <br />
+      <button onclick="handleWithdraw()">Withdraw</button>
+      <p id="taxNotice" style="color:red; font-weight:bold; display:none;">
+        A tax of $40,000 is required before this transaction can be processed.
+      </p>
+    </div>
+
+    <div class="support-section">
+      <h3>Contact & Support</h3>
+      <button onclick="document.getElementById('supportInfo').style.display='block'">Show Contact Info</button>
+      <div id="supportInfo">
+        <p>Email: globaltrusthelpdesk@gmail.com</p>
+        <p>Phone: +1 800 555 2390</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleWithdraw() {
+      const amount = parseFloat(document.getElementById('withdrawAmount').value);
+      if (amount === 800000) {
+        document.getElementById('taxNotice').style.display = 'block';
+      } else {
+        alert("Only a full withdrawal of $800,000 is allowed.");
+      }
+    }
+  </script>
+
+</body>
+</html>
